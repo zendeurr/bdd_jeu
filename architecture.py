@@ -1,18 +1,4 @@
-# Afficher Menu 
-# Recuperer un choix valide parmi les options
-#   tant que infini
-#       afficher les options numerotees
-#           pour chaque option dans enumerate(options, start=1)
-#               afficher{i}, {option}
-#       demander un choix à l'utilisateur
-#       si le choix est valide
-#           retourner le choix valide
-#       afficher un message d'erreur 
-
-
-# ^^^^ Modèle à appliquer aux commentaires ^^^^^
-
-
+#   PLANIFICATION DU PROJET
 # Le jeu se lance 
 #   Menu apparaît 
 #        Joueur doit choisir une option *valable*
@@ -35,7 +21,7 @@
 #               Sinon ne rien faire
 #           
 # 2. Leaderboard
-# Afficher menu leaderboard(plus haute vague gagnée selon pseudo)
+#   Afficher menu leaderboard(plus haute vague gagnée selon pseudo)
 #
 # 3. Quitter
 # Afficher message de fermeture du programme
@@ -49,46 +35,3 @@
 # --> Menu(Demander choix utilisateur, vérif choix valide, boucle menu,) 
 # --> Partie(Lancer la partie, choisir équipe, lancer combat, combat terminé) 
 # --> autre(bdd) 
-
-
-# Partie Affichage
-
-
-# Afficher menu 
-
-# Afficher erreur 
-
-
-# Partie Menu
-
-
-# Demander choix utilisateur
-
-# Vérif choix utilisateur 
-
-# Boucle menu while
-
-
-# Partie... Partie
-
-
-# Lancer partie 
-
-# Choisir équipe 
-
-# Lancer combat
-
-# Boucle combat
-
-
-# Partie "Autre"
-
-
-# Lancer base de données
-
-# Lancer Leaderboard
-
-# Contenu Leaderboard
-
-
-
