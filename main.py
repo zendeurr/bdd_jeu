@@ -42,7 +42,6 @@
 #       retourner Vrai
 #   Sinon retourner Faux
 
-
 # Afficher erreur (inutile finalement je vais enlever, autant mettre juste une erreur dans une fonction pas la peine d'utiliser une sous fonction)
 
 
@@ -100,7 +99,33 @@
 #       importer ennemi de mongodb  
 
 
-# Boucle combat
+# Faire attaquer
+#   creer liste des actions du joueur et des monstres de la vague
+#       pour chaque unité qui attaque
+#      si l'unité est vivante et qu'il reste supérieur ou égal a une cible
+#       calculer les dégâts de l'attaque
+#       soustraire les dégats au pv de la cible
+#       ajouter aux actions qui a frappé qui 
+#   retourner liste des actions
+
+# Lister unités en vie
+#   créer liste des unités en vie
+#   pour chaque unité du groupe
+#       si celle-ci a plus de 0 pv
+#           ajouter à la liste des unités en vie
+#   retourner liste des unités en vie
+
+# Choisir cible a attaquer au hasard
+#   lister les cibles encore en vie 
+#   choisir une cible au hasard
+# retourner la cible
+
+# Est-ce que groupe en vie
+#   pour chaque membre du groupe
+#       si le membre à plus de 0PV
+#       retourner True
+#   sinon retourner Faux
+
 
 # Afficher résultat partie
 
@@ -108,8 +133,25 @@
 
 
 
-# Lancer base de données
+# Connecter a la base de données
+#   se connecter au serveur mongodb
+#   sélectionner base de données 
+#   retourner
 
-# Lancer Leaderboard
+# Lire leaderboard
+#   se connter a la base
+#   lire "leaderboard"
+#   afficher plus grand nombre de vagues au plus petit
+#   garder le top 3 des score
+#  retourner 
 
 # Contenu Leaderboard
+#   lire le leaderboard dans la base de données
+#       afficher le leaderboard
+
+# Afficher le leaderboard
+#   afficher le titre "leaderboard"
+#       si personne n'a joué 
+#           dire qu'aucune partie n'a été jouée
+#       sinon pour chaque joueur 
+#           afficher pseudo et score 
