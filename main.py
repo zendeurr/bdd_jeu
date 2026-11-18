@@ -1,8 +1,41 @@
+# Partie Affichage
+
+# Afficher titre
+    # afficher une ligne de "-"
+    # afficher le titre
+    # afficher une ligne de "-"
+
+# Afficher groupe
+#   affiche une ligne par membre d'un groupe
+#       pour chaque membre du groupe
+#       afficher sa description
+
+# Afficher description
+# Ecrit le texte d'un personnage ou d'un monstre
+#   écrit nom du personnage, ATK, DEF et PV sur une ligne000000
+
+# Afficher état du combat
+#   afficher le titre de l'équipe
+#   afficher l'équipe
+#   afficher le titre des énemeis
+#   afficher les ennemis
+
+# Afficher état puis pause comme ça on peut constater chaque chaque 
+    # afficher état du combat
+    # sleep() pour laisser au joueur le temps de lire ce qu'il se passe
+
 
 # Partie Menu
 
+# Vérifier choix joueur
+#   Si le choix n'est pas un nombre
+#       retourner False
+#   transformer le choix en chiffre
+#   si le nombre est entre 1 et le nombre d'options
+#       retourner True
+#   retourner False
 
-# Afficher menu 
+# Récupérer choix valide
 # récup choix valide parmis les options 
 #   tant que true
 #       afficher les options numérotées
@@ -127,7 +160,9 @@
 #   sinon retourner Faux
 
 
-# Afficher résultat partie
+# Afficher options
+#   pour chaque option possédant un numéro
+#       afficher son numéro et son texte
 
 # Partie "Autre"
 
