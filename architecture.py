@@ -7,15 +7,23 @@
 #
 # 1. Jouer  
 # Demander son pseudo au joueur
-# Affichage d'un nombre x de personnages via un print (pour l'instant), demande à utilisateur d'en choisir 3
+# Affichage d'un nombre x de personnages de la base de données, demande à utilisateur d'en choisir 3
 #   Ne peut pas choisir le même perso
-# Le jeu se lance lorsqu'il a selectionné = 5 personnages
-#       Tant que l'équipe du joueur est en vie, une nouvelle vahue d'ennemie arrive(Trois fenêtres sont affichées)
+# Le jeu se lance lorsqu'il a selectionné = 3 personnages
+#       Tant que l'équipe du joueur est en vie, une nouvelle vague d'ennemie arrive(Trois fenêtres sont affichées)
 #           Trois "blocs" dans la console, réafichées actualisés(
 #               Celle de gauche = Équipe du joueur(ATK,DEF,PV actuels) 
 #               Celle du centre = État de la partie(Qui fait quoi, quand)
 #               Celle de droite = Équipe de l'adversaire(ATK, DEV, PV actuels)
 #           )
+#           Commencer la vague 
+#               L'équipe combat la vague de monstre
+#                   Les monstres deviennent plus puissant à chaque vague
+#                       Fait attaquer l'équipe en premier puis la vague de monstres
+#               Si des monstres sont en vie 
+#                   les monstres attaquent l'équipe   
+#               Si l'équipe gagne la vague
+#                   Passer à la prochaine vague (plus puissante)
 #           Lorsque partie est finie 
 #               Si joueur a gagné ajouter +1 poin au leaderboard
 #               Sinon ne rien faire
