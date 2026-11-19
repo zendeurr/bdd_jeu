@@ -5,51 +5,85 @@ CHOIX_JOUER = 1
 CHOIX_LEADERBOARD = 2
 CHOIX_QUITTER = 3
 
+NOM_DU_JEU = "World Simulator 😎🌍"
+OPTIONS_DU_JEU = ["Jouer", "Leaderboard", "Quitter 😔😪😭🥺"]
+
+
 # Partie Affichage
 
+
 # Afficher titre
+def afficher_titre(texte):
 # afficher une ligne de "-"
+print("-----------------------------------------")
 # afficher le titre
+print(texte)
 # afficher une ligne de "-"
+print("-----------------------------------------")
+
 
 # Afficher groupe
+def afficher_groupe(groupe):
 #   affiche une ligne par membre d'un groupe
+    for membre in groupe:
 #       pour chaque membre du groupe
+        print(afficher_description(membre))
 #       afficher sa description
 
 # Afficher description
 # Ecrit le texte d'un personnage ou d'un monstre
-#   écrit nom du personnage, ATK, DEF et PV sur une ligne000000
+def afficher_description(perso):
+#   écrit nom du personnage, ATK, DEF et PV sur une ligne
+    texte = f'{perso["nom"]} - {perso["atk"]} ATK - {perso["defense"]} DEF - {perso["pv"]} PV'
 #   retourner
+    return texte
 
 # Afficher état du combat
+def afficer_etat_du_combat(equipe, ennemis):
 #   afficher le titre de l'équipe
+    print("Le mauvais côté de l'Histoire : ")
 #   afficher l'équipe
+    afficher_groupe(equipe)
 #   afficher le titre des ennemis
+    print("Le bon côté de l'Histoire : ")
 #   afficher les ennemis
+    afficher_groupe(ennemis)
 
 # Afficher etat puis pause
+def afficher_etat_puis_pause(equipe, ennemis):
     # afficher état du combat
+    afficer_etat_du_combat(equipe, ennemis)
     # sleep() pour laisser au joueur le temps de lire ce qu'il se passe
-
+    time.sleep(PAUSE)
 
 # Partie Menu
 
 
 # Vérifier choix joueur
+def verifier_choix_joueurs(choix, options):
 #   Si le choix n'est pas un nombre
+    if choix.isdecimal():
 #       retourner False
+        return False
 #   transformer le choix en chiffre
+    nombre = int(choix)
 #   si le nombre est entre 1 et le nombre d'options
+    if nombre >= 1 and nombre <= len(options):
 #       retourner True
+        return True
 #   retourner False
+    return False
 
 
 # Récupérer choix valide
 # récup choix valide parmis les options 
+def recuperer_choix_valide(options):
 #   tant que true
+    while True:
 #       afficher les options numérotées
+        afficher_options(options)
 #       demander un choix à l'utilisateur
+        choix = input("Choisis ton pays : ")
 #           si le choix est bon
 #               retourner choix valide
 #           sinon afficher un message d'erreur 
