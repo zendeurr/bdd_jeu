@@ -1,9 +1,11 @@
+TAILLE_EQUIPE = 3
+
 # Partie Affichage
 
 # Afficher titre
-    # afficher une ligne de "-"
-    # afficher le titre
-    # afficher une ligne de "-"
+# afficher une ligne de "-"
+# afficher le titre
+# afficher une ligne de "-"
 
 # Afficher groupe
 #   affiche une ligne par membre d'un groupe
@@ -20,7 +22,7 @@
 #   afficher le titre des énemeis
 #   afficher les ennemis
 
-# Afficher état puis pause comme ça on peut constater chaque chaque 
+# Afficher etat puis pause
     # afficher état du combat
     # sleep() pour laisser au joueur le temps de lire ce qu'il se passe
 
@@ -75,8 +77,6 @@
 #       retourner Vrai
 #   Sinon retourner Faux
 
-# Afficher erreur (inutile finalement je vais enlever, autant mettre juste une erreur dans une fonction pas la peine d'utiliser une sous fonction)
-
 
 # Partie Combat
 
@@ -84,20 +84,26 @@
 # Demander pseudo joueur
 # tant que true
 #   demander pseudo au joueur
-#       si pseudo ne contient pas caractères spéciaux et plus de 15 caractères
-#           afficher pseudo du joueur et message de succès
-#       sinon afficher erreur
+#       si pseudo contient caractères spéciaux et plus de 15 caractères
+#           afficher erreur
+#       sinon afficher pseudo du joueur et message de succès
 
 
 # Lancer partie 
 #   demander son pseudo au joueur
-#       recup les personnages dans la bdd
-#       afficher menu du choix des personnages
-#           faire choisir 3 personnages au joueur pour former son équipe
-#               faire combattre l'équipe vague après vague
-#            enregistrer le record du joueur (s'il la battu)
-#               afficher le score de la partie  
+#   recup les personnages dans la bdd
+#   afficher menu du choix des personnages
+#   faire choisir 3 personnages au joueur pour former son équipe
+#   faire combattre l'équipe vague après vague
+#   enregistrer le record du joueur (s'il la battu)
+#   afficher le score de la partie  
 
+# Est-ce que personnages disponibles
+#   créer la liste vide des personnages disponible
+#   pour chaque personnage choisissable dans la bdd
+#       si l'équipe ne contient pas ce personnage
+#           ajouter dans la liste
+#       retourner personnages disponibles
 
 # Choisir équipe 
 #   Faire choisir 3 personnages au joueur
@@ -108,13 +114,19 @@
 #           ajouter personnage a l'équipe
 #       retourner l'équipe
 
+# Afficher équipe du joueur
+#   afficher nombre de personnages choisit par le joueur par rapport à son équipe
+#       pour chaque personnage de l'équipe avec son propre numéro
+#           afficher numéro et description du personnage    
 
 # Lancer combat
 #   tant que l'équipe du joueur n'est pas battue
 #       l'équipe attaque les monstres
+#           afficher l'état puis pause
 #       tant que les monstres ne sont pas battus
 #           les monstres attaquent l'équipe
-#   retourner true si l'
+#               afficher l'état puis pause
+#   retourner true si l'équipe est toujours en vie
 
 
 # Lancer la vague
@@ -159,6 +171,10 @@
 #       retourner True
 #   sinon retourner Faux
 
+# Afficher résultat de la partie
+#   retour à la ligne, afficher "game over :("
+#   retour à la l, afficher pseudo du joueur
+#   retour à la l, afficher score 
 
 # Afficher options
 #   pour chaque option possédant un numéro
