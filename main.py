@@ -1,4 +1,9 @@
 TAILLE_EQUIPE = 3
+PAUSE = 2
+PSEUDO_MAX = 15
+CHOIX_JOUER = 1
+CHOIX_LEADERBOARD = 2
+CHOIX_QUITTER = 3
 
 # Partie Affichage
 
@@ -15,11 +20,12 @@ TAILLE_EQUIPE = 3
 # Afficher description
 # Ecrit le texte d'un personnage ou d'un monstre
 #   écrit nom du personnage, ATK, DEF et PV sur une ligne000000
+#   retourner
 
 # Afficher état du combat
 #   afficher le titre de l'équipe
 #   afficher l'équipe
-#   afficher le titre des énemeis
+#   afficher le titre des ennemis
 #   afficher les ennemis
 
 # Afficher etat puis pause
@@ -29,6 +35,7 @@ TAILLE_EQUIPE = 3
 
 # Partie Menu
 
+
 # Vérifier choix joueur
 #   Si le choix n'est pas un nombre
 #       retourner False
@@ -37,12 +44,11 @@ TAILLE_EQUIPE = 3
 #       retourner True
 #   retourner False
 
+
 # Récupérer choix valide
 # récup choix valide parmis les options 
 #   tant que true
 #       afficher les options numérotées
-#           pour chaque option dans enumerate(options, start=1)
-#           afficher {i}. {option}
 #       demander un choix à l'utilisateur
 #           si le choix est bon
 #               retourner choix valide
@@ -53,29 +59,20 @@ TAILLE_EQUIPE = 3
 # lancer l'action qui correspond au choix du menu
 #   si le choix est jouer
 #       lancer une partie
-#   ou si le choix est eaderboard
+#   ou si le choix est leaderboard
 #       voir le leaderboard
 #   ou si le choix est quitter
-#       afficher un msssage de fermeture
+#       afficher un message de fermeture et quitter
 #   faire une pause
 
 
 # Répéter Menu
-# afficher le menu jusqu'à ce que l'utilisateur choisisse Quitter
+# afficher le menu, lancer l'action choisie par le joueur, puis recommencer jusqu'à ce qu'il choisisse Quitter
+#   créer le choix de départ (0)
 #   tant que le choix n'est pas Quitter
 #       afficher le titre du jeu
 #       récup un choix valide parmi les options du menu
 #       exécuter l'action de ce choix
-
-
-# Vérifier choix joueur 
-#   Vérifier qu'un choix x est valide 
-#       Si le choix n'est pas un nombre:
-#           retourner Faux
-#       transformer le choix en nombre entier
-#   Si le nombre est entre 1 et le nombre d'options
-#       retourner Vrai
-#   Sinon retourner Faux
 
 
 # Partie Combat
@@ -92,66 +89,98 @@ TAILLE_EQUIPE = 3
 # Lancer partie 
 #   demander son pseudo au joueur
 #   recup les personnages dans la bdd
-#   afficher menu du choix des personnages
+#   recup les monstres dans la bdd
 #   faire choisir 3 personnages au joueur pour former son équipe
 #   faire combattre l'équipe vague après vague
 #   enregistrer le record du joueur (s'il la battu)
 #   afficher le score de la partie  
+
+
+# Equipe au complet
+#   si l'équipe est au complet
+#       retourner Vrai
+#   sinon retourner faux
+
 
 # Est-ce que personnages disponibles
 #   créer la liste vide des personnages disponible
 #   pour chaque personnage choisissable dans la bdd
 #       si l'équipe ne contient pas ce personnage
 #           ajouter dans la liste
-#       retourner personnages disponibles
+#   retourner personnages disponibles
+
+# Construire options affichables
+# créer une liste vide 
+#   écrire les détails de la liste de texte d'un personnage par ex: "Paladin - 67 ATK - 10 DEF - 50HP"
+#   ajouter ce texte à la liste des options 
+# retourner la liste des options
+
+
+# Choisir un personnage
+#   déterminer les personnages disponibles
+#   construire les textes à afficher pour ces personnages
+#   afficher "personnages disponibles:" récupérer un choix valide
+#   retourner le personnage choisi par le joueur
+
 
 # Choisir équipe 
 #   Faire choisir 3 personnages au joueur
-#       tant que l'équipe n'a pas 3 personnages selectionnés
-#           montrer les personnages disponibles
-#           recup choix valide
-#           lorsque joueur selectionne personnage celui-ci est retiré de la liste disponible et annoncé comme choisit 
-#           ajouter personnage a l'équipe
-#       retourner l'équipe
+#   afficher le titre du choix des personnages
+#   créer une équipe vide
+#   tant que l'équipe n'a pas 3 personnages selectionnés
+#       afficher les personnages du joueurs
+#       faire choisir un personnage parmis ceux disponibles
+#       ajouter ce personnage à l'équipe du joueur
+#       afficher qu'il rejoint l'équipe
+#   retourner l'équipe
+
 
 # Afficher équipe du joueur
-#   afficher nombre de personnages choisit par le joueur par rapport à son équipe
-#       pour chaque personnage de l'équipe avec son propre numéro
-#           afficher numéro et description du personnage    
+#   afficher nombre de personnages choisit par le joueur sur le maximum choisissable
+#   pour chaque personnage de l'équipe avec son propre numéro
+#       afficher numéro et description du personnage    
+
 
 # Lancer combat
-#   tant que l'équipe du joueur n'est pas battue
+#   tant que l'équipe du joueur et les monstres ont encore des survivants
 #       l'équipe attaque les monstres
 #           afficher l'état puis pause
-#       tant que les monstres ne sont pas battus
-#           les monstres attaquent l'équipe
-#               afficher l'état puis pause
+#       si des ennemise sont encore en vie
+#           les ennemises attaquent l'équipe
+#           afficher l'état puis pause
 #   retourner true si l'équipe est toujours en vie
 
 
 # Lancer la vague
+#   afficher la vague
+#   prendre un monstre au hasard
+#   afficher les caractéristiques du monstre
+#   faire combattre l'équipe contre le monstre
+
+
+# Lancer les vagues
+#   commencer avec 0 vague survécue
 #   tant que l'équipe a des personnages en vie
-#       creer les ennemis de la vague 
-#   si l'équipe gagne le combat 
-#       ajouter 1 point au leaderboard du joueur 
+#       Calculer le numéro de la vague en cours 
+#       si l'équipe gagne le combat 
+#           ajouter 1 point au leaderboard du joueur 
 #   retourner nombre de vagues survécues
 
 
-# Créer la vague
-#   prendre monstre de la base de données
-#       ajouter 1 monstre de plus toutes les 2 vagues
-#       calculer atk def pv (augmente en fonction de la vague)
-#       importer ennemi de mongodb  
+# Prendre un monstre au hasard
+#   choisit un monstre aléatoirement dans la db 
+#   en faire une copie 
+#   retourner la copie 
 
 
 # Faire attaquer
-#   creer liste des actions du joueur et des monstres de la vague
-#       pour chaque unité qui attaque
-#      si l'unité est vivante et qu'il reste supérieur ou égal a une cible
-#       calculer les dégâts de l'attaque
-#       soustraire les dégats au pv de la cible
-#       ajouter aux actions qui a frappé qui 
-#   retourner liste des actions
+#   pour chaque unité qui attaque
+#       si l'unité est vivante et qu'il reste supérieur ou égal a une cible
+#           choisir au hasard une cible parmi celle en vie
+#           calculer les dégâts de l'attaque
+#           soustraire les dégats au pv de la cible
+#           afficher qui frappe qui
+
 
 # Lister unités en vie
 #   créer liste des unités en vie
@@ -160,25 +189,38 @@ TAILLE_EQUIPE = 3
 #           ajouter à la liste des unités en vie
 #   retourner liste des unités en vie
 
+
 # Choisir cible a attaquer au hasard
 #   lister les cibles encore en vie 
 #   choisir une cible au hasard
 # retourner la cible
 
+
+# Calculer les dégâts
+#   dégats = ATK de de l'attaquant - DEF de l'ennemi
+#   si les dégats sont inférieurs à 1
+#       définir les dégats a 1 (évite que les attaquent fassent 0 dégats parce que ATK = DEF) 
+#   retourner les dégats
+
+
 # Est-ce que groupe en vie
 #   pour chaque membre du groupe
-#       si le membre à plus de 0PV
-#       retourner True
+#       si le membre à plus de 0 PV
+#           retourner True
 #   sinon retourner Faux
+
 
 # Afficher résultat de la partie
 #   retour à la ligne, afficher "game over :("
 #   retour à la l, afficher pseudo du joueur
 #   retour à la l, afficher score 
 
+
 # Afficher options
 #   pour chaque option possédant un numéro
 #       afficher son numéro et son texte
+
+
 
 # Partie "Autre"
 
@@ -189,20 +231,42 @@ TAILLE_EQUIPE = 3
 #   sélectionner base de données 
 #   retourner
 
+# Lire personnages 
+#   se connecter à la db
+#   lire "personnages"
+#   retourner la liste de personnages
+
+# Lire monstres 
+#   se connecter à la db
+#   lire "monstres"
+#   retourner la liste de monstres   
+
+# Enregistrer score
+#   se connecter à la base de données
+#   voir si joueur existe 
+#   si le joueur n'existe pas encore
+#       l'ajouter avec son score respectif
+#   sinon son score est plus élevé que son ancien record
+#       mettre à jour le score     
+
+
 # Lire leaderboard
-#   se connter a la base
+#   se connecter a la base
 #   lire "leaderboard"
 #   afficher plus grand nombre de vagues au plus petit
-#   garder le top 3 des score
-#  retourner 
+#   garder le top 3 des scores
+#   retourner 
 
 # Contenu Leaderboard
 #   lire le leaderboard dans la base de données
-#       afficher le leaderboard
+#   afficher le leaderboard
 
 # Afficher le leaderboard
 #   afficher le titre "leaderboard"
-#       si personne n'a joué 
-#           dire qu'aucune partie n'a été jouée
-#       sinon pour chaque joueur 
-#           afficher pseudo et score 
+#   si personne n'a joué 
+#       dire qu'aucune partie n'a été jouée
+#   sinon pour chaque joueur 
+#       afficher pseudo et score 
+
+# Lancer programme
+#   boucler le menu
