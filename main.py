@@ -1,3 +1,8 @@
+import random
+import time
+
+from pymongo import MongoClient
+
 TAILLE_EQUIPE = 3
 PAUSE = 2
 PSEUDO_MAX = 15
@@ -15,11 +20,11 @@ OPTIONS_DU_JEU = ["Jouer", "Leaderboard", "Quitter 😔😪😭🥺"]
 # Afficher titre
 def afficher_titre(texte):
 # afficher une ligne de "-"
-print("-----------------------------------------")
-# afficher le titre
-print(texte)
-# afficher une ligne de "-"
-print("-----------------------------------------")
+    print("-----------------------------------------")
+    # afficher le titre
+    print(texte)
+    # afficher une ligne de "-"
+    print("-----------------------------------------")
 
 
 # Afficher groupe
@@ -62,7 +67,7 @@ def afficher_etat_puis_pause(equipe, ennemis):
 # Vérifier choix joueur
 def verifier_choix_joueurs(choix, options):
 #   Si le choix n'est pas un nombre
-    if choix.isdecimal():
+    if not choix.isdecimal():
 #       retourner False
         return False
 #   transformer le choix en chiffre
@@ -108,12 +113,12 @@ def action_joueur(choix):
 #       afficher un message de fermeture et quitter
         print("bisousx 😘")
 #   faire une pause
-    time.sleep(PAUSE)
+        time.sleep(PAUSE)
 
 
 # Répéter Menu
 # afficher le menu, lancer l'action choisie par le joueur, puis recommencer jusqu'à ce qu'il choisisse Quitter
-def repeter_menu()
+def repeter_menu():
 #   créer le choix de départ (0)
     choix = 0
 #   tant que le choix n'est pas Quitter
@@ -303,7 +308,7 @@ def faire_attaquer(attaquants, cibles):
 #   pour chaque unité qui attaque
     for attaquant in attaquants:
 #       si l'unité est vivante et qu'il reste supérieur ou égal a une cible
-        if attaquants["pv"] > 0 and groupe_en_vie(cibles):
+        if attaquant["pv"] > 0 and groupe_en_vie(cibles):
 #           choisir au hasard une cible parmi celle en vie
             cible = choisir_cible_a_attaquer_au_hasard(cibles)
 #           calculer les dégâts de l'attaque
@@ -323,7 +328,7 @@ def lister_unites_en_vie(groupe):
 #       si celle-ci a plus de 0 pv
         if unite["pv"] > 0:
 #           ajouter à la liste des unités en vie
-            en_vie.append(unites)
+            en_vie.append(unite)
 #   retourner liste des unités en vie
     return en_vie
 
@@ -395,7 +400,7 @@ def connecter_a_la_base_de_donnes():
     return base
 
 # Lire personnages
-def lire_personnage(): 
+def lire_personnages(): 
 #   se connecter à la db
     base = connecter_a_la_base_de_donnes()
 #   lire "personnages"
@@ -435,7 +440,7 @@ def lire_leaderboard():
 #   lire "leaderboard"
     resultats = base["leaderboard"].find()
 #   afficher plus grand nombre de vagues au plus petit
-    resultats = resultats.sort("vagues", -10)
+    resultats = resultats.sort("vagues", -1)
 #   garder le top 3 des scores
     resultats = resultats.limit(TAILLE_LEADERBOARD)
 #   retourner 
@@ -466,4 +471,4 @@ def afficher_le_leaderboard(leaderboard):
 # Lancer programme
 def lancer_programme():
 #   boucler le menu
-    repeter_menu
+    repeter_menu()
